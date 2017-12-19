@@ -1,0 +1,19 @@
+{
+  "name": "public-tools-fn",
+  "version": "1.0.2",
+  "description": "javsacript-tools-fn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ethan",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/songdongdong123/Javascript-1minute-knowledge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/songdongdong123/Javascript-1minute-knowledge#readme"
+  },
+  "homepage": "https://github.com/songdongdong123/"
+}
