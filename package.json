@@ -1,6 +1,6 @@
 {
   "name": "public-tools-fn",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "description": "javsacript-tools-fn",
   "main": "index.js",
   "scripts": {
