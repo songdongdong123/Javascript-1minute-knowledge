@@ -97,6 +97,54 @@ const scrollToTop = function () {
   }, 0)
 }
 
+const getQueryString = function (name) {
+  // 获取url参数
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"),r = window.location.search.substr(1).match(reg)
+  if (r !== null) {
+  return unescape(r[2])
+  }
+  return null;
+}
+
+const urlEncode = (url, data) => {
+  // 用来拼接get请求的时候的参数
+  if (typeof (url) === 'undefined' || url === null || url === '') return ''
+  if (typeof (data) === 'undefined' || data === null || typeof (data) !== 'object') return url
+  url += (url.indexOf('?') !== -1) ? '' : '?'
+  for (let k in data) {
+    url += ((url.indexOf('=') !== -1) ? '&' : '') + k + '=' + encodeURI(data[k])
+  }
+  return url
+}
+
+const getCookie = function (name) {
+  // 获取cookie
+  let arr = []
+  let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+  arr = document.cookie.match(reg)
+  if (arr) {
+    return unescape(arr[2])
+  } else {
+    return null
+  }
+}
+
+const setCookie = function (name, value) {
+  // 设置cookie
+  document.cookie = `${name} = ${value};path=/`
+}
+
+const createRandomStr = function (len) {
+  // 生成任意长度的随机字符串
+  let $chart = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let maxPos = $chart.length
+  let tempStr = ''
+  for (let i = 0; i < len; i++) {
+    tempStr += $chart.charAt(Math.floor(Math.random() * maxPos))
+  }
+  return tempStr
+}
+
 module.exports = {
   getRandom,
   getArrMax,
@@ -106,5 +154,8 @@ module.exports = {
   verificationAuthCode,
   verificationPhone,
   verificationPassWord,
-  scrollToTop
+  scrollToTop,
+  getQueryString,
+  createRandomStr,
+  urlEncode
 }
